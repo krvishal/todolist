@@ -67,6 +67,7 @@
       render(){
         let validate=classNames({
           "form-group":true,
+          "has-error":false
         });
         return(
           <form>
@@ -80,6 +81,9 @@
         );
       }
     }
+    AddTodo.propTypes={
+      onChange:React.PropTypes.func.isRequired,
+    };
     //display result
     class InputText extends React.Component{
     constructor(props){
