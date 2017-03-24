@@ -135,13 +135,12 @@
       }
       renderEdit(list){
         console.log(list);
-        console.log(list.key);
         return(
             <div className="col-md-5">
               <label>Update/Edit Todo List</label>
               <ul className="list-group">
-                <li className="list-group-item" key={list.key}>
-                <input type="text" className="form-control" value={list.name} />
+                <li className="list-group-item" key={list.key} >
+                <input type="text" className="form-control" value={list.name} placeholder="Update text....." />
                 </li>
               </ul>
               <button className="btn btn-success" onClick={this.save}>Save</button>
