@@ -8,6 +8,7 @@
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <script src="bootstrap/lodash.js"></script>
   <script src="bootstrap/jquery-3.1.1.js"></script>
+  <script src="classnames/index.js"></script>
 </head>
 <body>
   <div class="container" style="margin-top:100px">
@@ -58,18 +59,14 @@
         handleClick(e){
            e.preventDefault();
            let name= this.state.val;
-           let hasError=false;
            if(name.length>0){
              this.props.onChange(name);
              this.setState({val:''});
-           }else{
-             hasError=true;
            }
         }
       render(){
-        let validate=({
+        let validate=classNames({
           "form-group":true,
-          "has-error":this.hasError
         });
         return(
           <form>
@@ -132,14 +129,14 @@
         this.setState({modeEdit:true});
         this.renderEdit(list);
       }
-      renderEdit(lists){
-        console.log(lists);
+      renderEdit(list){
+        console.log(list);
         return(
             <div className="col-md-5">
               <label>Update/Edit Todo List</label>
               <ul className="list-group">
-                <li className="list-group-item" key={lists.key}>
-                <input type="text" className="form-control" value={lists.name}  />
+                <li className="list-group-item" key={list.key}>
+                <input type="text" className="form-control" value={list.name} />
                 </li>
               </ul>
               <button className="btn btn-success" onClick={this.save}>Save</button>
